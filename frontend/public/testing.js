@@ -330,15 +330,6 @@ function addMessageToChat(text, isReceived = false, language = null) {
         // Scroll to bottom
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
-
-    function sendMessage() {
-        const text = chatInput.value.trim();
-        if (text) {
-            addMessageToChat(text, false);
-            chatInput.value = '';
-        }
-    }
-
     // Send message handlers
     const sendButton = document.querySelector('.send-button');
     sendButton.addEventListener('click', sendMessage);
