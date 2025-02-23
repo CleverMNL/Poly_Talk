@@ -28,6 +28,137 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Add this at the top of your DOMContentLoaded event listener
+
+// Mock responses based on language
+const mockResponses = {
+    'English': [
+        "That's interesting! Could you tell me more about that?",
+        "I understand. How did that make you feel?",
+        "What would you do differently next time?",
+        "That's a great way to practice English! Let me share a cultural tip: In English-speaking countries, it's common to...",
+    ],
+    'Spanish': [
+        "¡Qué interesante! ¿Podrías contarme más?",
+        "Entiendo. ¿Cómo te hizo sentir eso?",
+        "¿Qué harías diferente la próxima vez?",
+        "¡Excelente manera de practicar español! Un dato cultural: En países hispanohablantes, es común...",
+    ],
+    'French': [
+        "C'est intéressant! Pouvez-vous m'en dire plus?",
+        "Je comprends. Comment cela vous a-t-il fait sentir?",
+        "Que feriez-vous différemment la prochaine fois?",
+        "Excellent moyen de pratiquer le français! Un conseil culturel: En France, il est courant de...",
+    ],
+    'Arabic': [
+        "!هذا مثير للاهتمام! هل يمكنك إخباري المزيد؟",
+        "أفهم. كيف جعلك ذلك تشعر؟",
+        "ماذا ستفعل بشكل مختلف في المرة القادمة؟",
+        "...طريقة رائعة لممارسة العربية! نصيحة ثقافية: في البلدان العربية، من الشائع",
+    ]
+};
+
+// Modify the sendMessage function
+function sendMessage() {
+    const text = chatInput.value.trim();
+    if (text) {
+        // Add user message
+        addMessageToChat(text, false);
+        chatInput.value = '';
+
+        // Get current language
+        const activeLanguage = document.querySelector('.language-item.active span').textContent;
+        
+        // Simulate AI thinking with typing indicator
+        setTimeout(() => {
+            addTypingIndicator();
+        }, 500);
+
+        // Send mock response after a delay
+        setTimeout(() => {
+            removeTypingIndicator();
+            
+            // Get random response for current language
+            const responses = mockResponses[activeLanguage] || mockResponses['English'];
+            const response = responses[Math.floor(Math.random() * responses.length)];
+            
+            // Add AI response with translation and context
+            addMessageToChat(response, true, activeLanguage);
+        }, 2000);
+    }
+}
+
+// Add typing indicator
+function addTypingIndicator() {
+    const chatMessages = document.querySelector('.chat-messages');
+    const typingDiv = document.createElement('div');
+    typingDiv.className = 'message-container typing-indicator';
+    typingDiv.innerHTML = `
+        <div class="message received">
+            <div class="message-content">
+                <span class="typing-dot">.</span>
+                <span class="typing-dot">.</span>
+                <span class="typing-dot">.</span>
+            </div>
+        </div>
+    `;
+    chatMessages.appendChild(typingDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+// Remove typing indicator
+function removeTypingIndicator() {
+    const typingIndicator = document.querySelector('.typing-indicator');
+    if (typingIndicator) {
+        typingIndicator.remove();
+    }
+}
+
+// Modify the addMessageToChat function
+function addMessageToChat(text, isReceived = false, language = null) {
+    const chatMessages = document.querySelector('.chat-messages');
+    const messageContainer = document.createElement('div');
+    messageContainer.className = 'message-container';
+    
+    const message = document.createElement('div');
+    message.className = `message ${isReceived ? 'received' : 'sent'}`;
+    
+    const messageContent = document.createElement('div');
+    messageContent.className = 'message-content';
+    messageContent.textContent = text;
+    
+    message.appendChild(messageContent);
+    messageContainer.appendChild(message);
+
+    // Add translation and context for AI responses
+    if (isReceived) {
+        // Add mock translation
+        const translation = document.createElement('div');
+        translation.className = 'translation';
+        translation.textContent = `Translation: ${text}`;
+        message.appendChild(translation);
+
+        // Add context help
+        const context = document.createElement('div');
+        context.className = 'context-help';
+        context.textContent = 'Cultural Context: This is a common expression used in casual conversations.';
+        message.appendChild(context);
+
+        // Add feedback buttons
+        const feedbackButtons = document.createElement('div');
+        feedbackButtons.className = 'feedback-buttons';
+        feedbackButtons.innerHTML = `
+            <button class="feedback-button">👍 Helpful</button>
+            <button class="feedback-button">👎 Not Helpful</button>
+            <button class="feedback-button">💡 Need Clarification</button>
+        `;
+        message.appendChild(feedbackButtons);
+    }
+
+    chatMessages.appendChild(messageContainer);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
     // Language selection and dropdown functionality
     const languageItems = document.querySelectorAll('.language-item');
     const languageCodeMap = {
