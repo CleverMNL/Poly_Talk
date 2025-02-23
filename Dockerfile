@@ -20,4 +20,4 @@ COPY frontend/src/ /frontend/src/
 RUN npm install && npm run build
 
 # Serve the app using npx serve
-CMD ["npx", "serve", "build"]
+CMD ["node", "server.js"]
