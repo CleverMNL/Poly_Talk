@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Onboarding Page</title>
+  <link rel="stylesheet" href="onboarding.css">
+</head>
+<body>
+  <div class="onboarding-container">
+    <div class="progress-bar">
+      <div class="progress"></div>
+    </div>
+    
+    <h1>Welcome to PolyTalk</h1>
+    <p>Let's learn together</p>
+
+    <div class="onboarding-steps">
+      <div class="step active">
+        <div class="feature-list">
+          <div class="feature-card">
+            <h3>🎯 Personalized Dashboard</h3>
+            <p>Track your progress with our intuitive interface</p>
+          </div>
+          <div class="feature-card">
+            <h3>🔒 Secure Storage</h3>
+            <p>Your data is protected with enterprise-grade security</p>
+          </div>
+          <div class="feature-card">
+            <h3>💡 Smart Insights</h3>
+            <p>Get actionable recommendations based on your usage</p>
+          </div>
+        </div>
+        <div class="button-group">
+          <button class="btn btn-primary" onclick="document.location='login.html'">Next</button>
+        </div>
+      </div>
+
+      <div class="step">
+        <form>
+          <div class="form-group">
+            <label for="account-type">Account Type</label>
+            <select id="account-type" required>
+              <option value="">Select Account Type</option>
+              <option value="personal">Personal</option>
+              <option value="professional">Professional</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="full-name">Full Name</label>
+            <input type="text" id="full-name" required>
+          </div>
+          <div class="button-group">
+            <button type="button" class="btn btn-secondary">Back</button>
+            <button type="submit" class="btn btn-primary">Next</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

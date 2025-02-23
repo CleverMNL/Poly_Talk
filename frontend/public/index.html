@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Educational AI Chat</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="testing.js"></script>
+    <script src="frontend\src\App.js"></script>
+    <script src="frontend\src\index.js"></script>
+    <script src="frontend\src\pages\Home.js"></script>
+    <script src="frontend\src\pages\Dashboard.js"></script>
+    <script src="frontend\src\components\ChatBox.js"></script>
+    <script src="frontend\src\components\Sidebar.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="nav-header">
+                <h2 class="header-title">Languages</h2>
+            </div>
+            <div class="language-nav">
+                <div class="language-item active">
+                    <img src="/api/placeholder/24/24" alt="English" class="language-icon">
+                    <span>English</span>
+                </div>
+                <div class="conversations-list">
+                    <div class="conversation-item">Conversation 1</div>
+                    <div class="conversation-item">Conversation 2</div>
+                </div>
+                
+                <div class="language-item">
+                    <img src="/api/placeholder/24/24" alt="Spanish" class="language-icon">
+                    <span>Spanish</span>
+                </div>
+                <div class="conversations-list">
+                    <div class="conversation-item">Conversación 1</div>
+                    <div class="conversation-item">Conversación 2</div>
+                </div>
+
+                <div class="language-item">
+                    <img src="/api/placeholder/24/24" alt="Spanish" class="language-icon">
+                    <span>French</span>
+                </div>
+                <div class="conversations-list">
+                    <div class="conversation-item">Conversación 1</div>
+                    <div class="conversation-item">Conversación 2</div>
+                </div>
+
+                <div class="language-item">
+                    <img src="/api/placeholder/24/24" alt="Spanish" class="language-icon">
+                    <span>Arabic</span>
+                </div>
+                <div class="conversations-list">
+                    <div class="conversation-item">Conversación 1</div>
+                    <div class="conversation-item">Conversación 2</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-area">
+            <div class="chat-header">
+                <h2>English Practice</h2>
+                <div class="header-actions">
+                    <button class="feedback-button">Settings</button>
+                    <img src="" alt="Logo" class="header-logo"> 
+                </div>
+            </div>
+
+            <div class="chat-messages">
+                <div class="message-container">
+                    <div class="message received">
+                        <div class="message-content">
+                            How was your weekend? What activities did you do?
+                        </div>
+                        <div class="translation">
+                            Spanish: ¿Qué tal tu fin de semana? ¿Qué actividades hiciste?
+                        </div>
+                        <div class="context-help">
+                            This is a common way to start casual conversations and practice past tense.
+                        </div>
+                        <div class="feedback-buttons">
+                            <button class="feedback-button">👍 Helpful</button>
+                            <button class="feedback-button">👎 Not Helpful</button>
+                            <button class="feedback-button">💡 Need Clarification</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="message-container">
+                    <div class="message sent">
+                        <div class="message-content">
+                            Fui a la playa con mi familia. Jugamos voleibol y comimos helado.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-input">
+                <input type="text" placeholder="Type your message...">
+                <button class="mic-button">🎤</button>
+                <button class="send-button">Send</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
