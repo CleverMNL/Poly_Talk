@@ -28,21 +28,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Add this at the top of your DOMContentLoaded event listener
-
 // Mock responses based on language
 const mockResponses = {
-    'English': [
-        "That's interesting! Could you tell me more about that?",
-        "I understand. How did that make you feel?",
-        "What would you do differently next time?",
-        "That's a great way to practice English! Let me share a cultural tip: In English-speaking countries, it's common to...",
-    ],
     'Spanish': [
         "¡Qué interesante! ¿Podrías contarme más?",
         "Entiendo. ¿Cómo te hizo sentir eso?",
         "¿Qué harías diferente la próxima vez?",
         "¡Excelente manera de practicar español! Un dato cultural: En países hispanohablantes, es común...",
+    ],
+    'Amharic': [
+        "እዚ ተረኺቡ፡፡ እዚ እዩ። እዚ እዩ። እዚ እዩ።",
+        "እዚ እንተረኺቡ፡፡ እዚ እንተረኺቡ፡፡",
+        "እዚ እንተረኺቡ፡፡ እዚ እንተረኺቡ፡፡",
+        "እዚ እንተረኺቡ፡፡ እዚ እንተረኺቡ፡፡",
     ],
     'French': [
         "C'est intéressant! Pouvez-vous m'en dire plus?",

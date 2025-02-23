@@ -28,27 +28,34 @@ body {
     background: var(--bg-color);
 }
 
+/* Create a header-controls container positioned on the right */
 .header-controls {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
 }
 
-.header-logo {
-    height: 32px;
-    width: auto;
-    object-fit: contain;
-}
-
+.header-logo,
 .settings-button {
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 50%;
+}
+
+.settings-button {
     background: none;
     border: none;
     cursor: pointer;
-    padding: 8px;
+    font-size: 1.5em;
+    padding: 0;
     color: var(--text-dark);
+}
+
+.header-logo {
+    object-fit: cover;
 }
 
 .container {
@@ -77,25 +84,25 @@ body {
 }
 
 .nav-header {
-    padding: 20px;
-    border-bottom: 1px solid var(--border-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 12px 20px; /* Center contents vertically */
+    border-bottom: 1px solid var(--border-color);
     background: var(--primary-color);
     color: var(--text-dark);
-    height: 64px; /* Fixed height to match chat header */
+    height: 64px;
 }
 
 .chat-header {
-    padding: 20px;
+    padding: 12px 20px;
     border-bottom: 1px solid var(--border-color);
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end; /* Align items to the right */
     align-items: center;
     background: var(--primary-color);
     color: var(--text-dark);
-    height: 64px; /* Fixed height to match nav header */
+    height: 64px;
 }
 
 .language-item {
@@ -371,4 +378,33 @@ input.error {
     color: var(--error-color);
     font-size: 0.85em;
     margin-top: 4px;
+}
+
+.typing-indicator .message-content {
+    display: flex;
+    gap: 4px;
+    padding: 8px 16px;
+}
+
+.typing-dot {
+    animation: typingDot 1.4s infinite;
+    font-size: 20px;
+    line-height: 8px;
+}
+
+.typing-dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typingDot {
+    0%, 60%, 100% {
+        transform: translateY(0);
+    }
+    30% {
+        transform: translateY(-4px);
+    }
 }
